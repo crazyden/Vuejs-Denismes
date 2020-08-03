@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    
+    <title>Squelette Vue.js</title>
+</head>
+<body>
+    <div id="app">
+    
+    <h1>Le binding double avec V-MODEL de Vue.js</h1>
+
+    <label for="nom">Entrer votre Nom :</label>  <br> 
+    <input type="text" v-model="nom" id="nom"> Bonjour <b> {{nom}}</b>
+    <br><hr>
+
+    <label for="ville">Choisir une ville !</label> - Vous avez choisi {{villeSelection}}<br>
+    <select id="ville" v-model="villeSelection">
+        <option >{{villes[0]}}</option>
+        <option >{{villes[1]}}</option>
+        <option >{{villes[2]}}</option>
+        <option >{{villes[3]}}</option>
+        <option >{{villes[4]}}</option>
+    </select>
+
+        <br><hr>
+
+    <label for="ville">Choisir une ville !</label> - Vous avez choisi {{vSelection}}<br>
+    <select id="ville" v-model="vSelection">
+        <option>Paris</option>
+        <option>Marseille</option>
+        <option>Toulouse</option>
+        <option>Bordeaux</option>
+        <option>Nantes</option>
+
+    </select>
+    <br><hr>
+<div style="white-space: pre-line;">{{multi}}</div><br>
+    <textarea v-model="multi" cols="40" rows="7"></textarea>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+       
+       var vm = new Vue({
+            el: '#app',
+            data: {
+               nom: '',
+               villes: ['Londres', 'Paris', 'New-York', 'Tokyo', 'Moscou'],
+               villeSelection: '',
+               vSelection: '',
+               multi: ''
+            }
+            });
+            
+
+    </script>
+</body>
+</html>

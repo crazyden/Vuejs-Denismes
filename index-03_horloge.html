@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    
+    <title>Squelette Vue.js</title>
+</head>
+<body>
+    <div id="app">
+    
+    <h1>Horloge en Vue.js</h1>
+
+       <p>{{h}} Heures || {{m}} minutes || {{s}} secondes</p>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+       var vm = new Vue({
+            el: '#app',
+            data: {
+                h: '',
+                m: '',
+                s: ''
+                }
+            });
+            setInterval(function () {
+                var d = new Date();
+                vm.h = ('0'+ d.getHours()).slice(-2);
+                vm.m = ('0'+ d.getMinutes()).slice(-2);
+                vm.s = ('0'+ d.getSeconds()).slice(-2);
+        })
+
+    </script>
+</body>
+</html>

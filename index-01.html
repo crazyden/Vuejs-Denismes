@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <title>Squelette Vue.js</title>
+</head>
+<body>
+    <div class="" id="app">
+    
+    <h1>Essai de Denismes en Vue.js</h1>
+
+    {{ chaine }} - et voici la date : {{ date }}<br><hr>
+
+    <p>{{ chaine.split('').reverse().join('') }}</p>
+    <p>{{ date.getHours() }} H- {{ date.getMinutes() }} MN- {{ date.getSeconds() }} S</p><br><hr>
+    <p>{{ inter ? 'Vrai' : 'Faux' }}</p><br><hr>
+    <p>{{ heure }} </p>
+    <p>{{ heure2() }} </p>
+
+<!--  avec methods on génère une fonction alors qu'avec computed on ne fait que des calculs 
+    et donc il est conseillé pour la rapidité du système de privilégier computed !!! -->
+
+
+</div>
+
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                chaine: 'Une simple chaîne',
+                inter: true,
+                hms: new Date(),
+                date: new Date() //Date.now()
+
+            },
+            computed: {
+                heure: function() {
+                    return this.date.getHours() + ' Heures '+ this.hms.getMinutes() + ' Minutes '+ this.hms.getSeconds() + ' Secondes';
+
+                }
+            },
+            methods: {
+                heure2: function() {
+                    return this.date.getHours() + ' Heures '+ this.hms.getMinutes() + ' Minutes '+ this.hms.getSeconds() + ' Secondes';
+
+                }
+            }
+        })
+    </script>
+</body>
+</html>

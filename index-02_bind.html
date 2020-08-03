@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+
+    <title>Squelette Vue.js</title>
+</head>
+<body>
+    <div class="" id="app">
+    
+    <h1>Essai de Bind en Vue.js</h1>
+
+        <img v-bind:src="image"> ou <img :src="image">
+
+    <div :id="id">Test ID </div>
+    <!-- on fait un console.log() pour voir si l'ID est bien défini avec le v-bind -->
+
+    <br><hr>
+
+    <p v-text="texte">   </p>
+    <p v-html="img">  </p>
+    <br><hr>
+    <p v-text="personne[0] + ' ' + personne[1] + ' '+ personne[2]">   </p>
+    <p>- Nom : <span v-text="perso1.nom"></span> <br>
+         - Prénom : <span v-text="perso1.prenom"></span> <br>
+         - Age : <span v-text="perso1.age"></span></p>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+       var vm = new Vue({
+            el: '#app',
+            data: {
+                image: 'https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823__340.jpg',
+                id: 'vuejs',
+                texte: 'Voici du texte pour le v-text !',
+                img: '<b>strong</b> <img src="https://cdn.pixabay.com/photo/2016/08/14/18/27/sailing-boat-1593613_960_720.jpg"> <b>strong</b>',
+                personne: [ 'Doe', 'John', '25 ans'],
+                perso1: {
+                    nom: 'Doe',
+                    prenom: 'John',
+                    age: 25
+                }
+            }
+        })
+
+        vm.perso1.age = vm.perso1.age + 1
+        setTimeout(function(){
+            vm.perso1.age = 30;
+        }, 5000)
+
+    </script>
+</body>
+</html>
